@@ -14,7 +14,7 @@ import edu.pitt.sis.infsci2711.multidbs.utils.JerseyJettyServer;
 public class Server {
 
     public static void main(final String[] args) throws Exception {
-        final JerseyJettyServer server = new JerseyJettyServer(7654, "edu.pitt.sis.infsci2711.tutorial.rest");
+        final JerseyJettyServer server = new JerseyJettyServer(7654, "edu.pitt.sis.infsci2711.iNotebook.rest");
         Thread serverTread = new Thread(new Runnable() {
             @Override
             public void run() {

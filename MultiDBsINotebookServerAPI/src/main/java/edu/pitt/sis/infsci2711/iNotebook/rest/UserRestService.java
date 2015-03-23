@@ -48,12 +48,13 @@ public class UserRestService {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(final User user) {
-
+        System.out.println(user.getUsername());
+        System.out.println(user.getEmail());
         UserService userService = new UserService();
         try {
             UserDBModel usersDB = userService.add(convertViewModelToDB(user));
 
-            User userInserted = convertDbToViewModel(usersDB);
+            User userInserted = convertDbToViewModelWithoutPwd(usersDB);
             
             return Response.status(200).entity(userInserted).build();
         } catch (Exception e) {
@@ -93,7 +94,7 @@ public class UserRestService {
     }
 
     private UserDBModel convertViewModelToDB(final User user) {
-        return new UserDBModel(user.getUserName());
+        return new UserDBModel(user.getUsername(),user.getPassword(),user.getEmail());
     }
 
     private List<User> convertDbToViewModel(final List<UserDBModel> usersDB) {
@@ -106,6 +107,10 @@ public class UserRestService {
     }
 
     private User convertDbToViewModel(final UserDBModel userDB) {
-        return new User(userDB.getId(), userDB.getUserName(), userDB.getPassword());
+        return new User(userDB.getId(), userDB.getUserName(), userDB.getPassword(),userDB.getEmail());
+    }
+    
+    private User convertDbToViewModelWithoutPwd(final UserDBModel userDB) {
+        return new User(userDB.getId(), userDB.getUserName(), userDB.getEmail());
     }
 }

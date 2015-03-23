@@ -14,19 +14,22 @@ public class UserDBModel {
     private int id;
     private String userName;
     private String password;
+    private String email;
     
     public UserDBModel() {
     }
     
-    public UserDBModel(final String userName) {
+    public UserDBModel(final String userName, final String password, final String email) {
         this.setUserName(userName);
         this.setPassword(password);
+        this.setEmail(email);
     }
     
-    public UserDBModel(final int id, final String userName, final String password) {
+    public UserDBModel(final int id, final String userName, final String password, final String eamil) {
         this.setId(id);
         this.setUserName(userName);
         this.setPassword(password);
+        this.setEmail(email);
     }
     
     public int getId() {
@@ -52,5 +55,12 @@ public class UserDBModel {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

@@ -32,7 +32,7 @@ public class UserDAO {
                 List<UserDBModel> result = new ArrayList<UserDBModel>();
                 
                 while (resultSet.next()) {
-                    result.add(new UserDBModel(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3)));
+                    result.add(new UserDBModel(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4)));
                 }
                 
                 return result;
@@ -50,7 +50,7 @@ public class UserDAO {
                 ResultSet resultSet = statement.executeQuery(sql);
                 
                 while (resultSet.next()) {
-                    return new UserDBModel(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3));
+                    return new UserDBModel(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),resultSet.getString(4));
                 }
                 
                 return null;
@@ -63,7 +63,8 @@ public class UserDAO {
         
         
         try (Connection connection = JdbcUtil.getConnection()) {
-            String sql = String.format("INSERT INTO Person (username, password) VALUES ('%s', '%s')", user.getUserName(), user.getPassword());
+            String sql = String.format("INSERT INTO Person (username, password, email) VALUES ('%s', '%s','%s')", user.getUserName(), user.getPassword(),user.getEmail());
+            System.out.println(sql);
             try (Statement statement = connection.createStatement()) {
                 
                 int res = statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
@@ -93,7 +94,7 @@ public class UserDAO {
 
     public static boolean checkUserName(final UserDBModel user) throws Exception {
         try (Connection connection = JdbcUtil.getConnection()) {
-            String sql = String.format("SELECT FROM User where username = '%s'", user.getUserName());
+            String sql = String.format("SELECT FROM Person where username = '%s'", user.getUserName());
             boolean res = false;
             try (Statement statement = connection.createStatement()) {
                 
@@ -110,7 +111,7 @@ public class UserDAO {
 
     public static UserDBModel checkUser(final UserDBModel user) throws Exception {
         try (Connection connection = JdbcUtil.getConnection()) {
-            String sql = String.format("SELECT FROM User where username = '%s' and  password = '%s'", user.getUserName(), user.getPassword());
+            String sql = String.format("SELECT FROM Person where username = '%s' and  password = '%s'", user.getUserName(), user.getPassword());
             try (Statement statement = connection.createStatement()) {
                 
                 ResultSet rs = statement.executeQuery(sql);

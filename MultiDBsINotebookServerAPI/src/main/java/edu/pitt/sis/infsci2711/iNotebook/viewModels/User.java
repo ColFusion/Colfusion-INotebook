@@ -6,6 +6,7 @@
 package edu.pitt.sis.infsci2711.iNotebook.viewModels;
 
 import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author Wu
@@ -14,38 +15,47 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class User {
 
     private int id;
-    private String userName;
+    private String username;
     private String password;
+    private String email;
 
-    public User() {
+    User() {
 
     }
 
-    public User(final String userName,final String password) {
-        this.setUserName(userName);
+    public User(final String username, final String password, final String email) {
+        this.setUsername(username);
         this.setPassword(password);
+        this.setEmail(email);
     }
-    
-    public User(final int id, final String userName,final String password) {
+
+    public User(final int id, final String username, final String password, final String email) {
         this.setId(id);
-        this.setUserName(userName);
+        this.setUsername(username);
         this.setPassword(password);
+        this.setEmail(email);
     }
-    
+
+    public User(final int id, final String username, final String email) {
+        this.setId(id);
+        this.setUsername(username);
+        this.setEmail(email);
+    }
+
     public int getId() {
         return id;
     }
-    
+
     public void setId(final int id) {
         this.id = id;
     }
-    
-    public String getUserName() {
-        return userName;
+
+    public String getUsername() {
+        return username;
     }
-    
-    public void setUserName(String userName) {
-        this.userName = userName;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -54,5 +64,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
