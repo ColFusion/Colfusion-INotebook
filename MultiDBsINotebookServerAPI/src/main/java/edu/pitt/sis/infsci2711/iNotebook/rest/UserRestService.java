@@ -5,22 +5,20 @@
  */
 package edu.pitt.sis.infsci2711.iNotebook.rest;
 
+import edu.pitt.sis.infsci2711.iNotebbok.config.URLConfig;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import edu.pitt.sis.infsci2711.iNotebook.business.UserService;
 import edu.pitt.sis.infsci2711.iNotebook.models.UserDBModel;
+import edu.pitt.sis.infsci2711.iNotebook.utils.Notebook;
 import edu.pitt.sis.infsci2711.iNotebook.viewModels.User;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 
 /**
@@ -72,10 +70,16 @@ public class UserRestService {
         try {
             UserDBModel usersDB = userService.checkUser(convertViewModelToDB(user));
             
-            User userLogin = convertDbToViewModel(usersDB);
-            
-            return Response.status(200).entity(userLogin).build();
-            
+            if(usersDB == null){
+                String message = "error";
+                return Response.status(200).entity(message).build();
+            }else{
+                String message = "success";
+                //Notebook.RunNotebook(usersDB.getUserName());
+                java.net.URI location = new java.net.URI(URLConfig.serverURL);
+                Response.temporaryRedirect(location).build();
+                return Response.status(200).entity(message).build();
+            }
         }catch(Exception e){
             return Response.status(500).build();
         }
