@@ -9,6 +9,7 @@ sudo apt-get install openjdk-7-jdk
 sudo apt-get install mysql-server
 sudo apt-get install nginx
 sudo apt-get install python-pip
+sudo apt-get install python3-pip
 sudo pip install ipython
 sudo pip3 install pyzmq
 sudo pip install Jinja2
@@ -29,10 +30,6 @@ sudo pip3 install jsonschema
 #ln -s /opt/python3.3/bin/python3.3 ~/bin/py
 #Then run python 3.3 by /opt/python3.3/bin/python3
 
-#install pip from python 3
-sudo apt-get install python3-pip
-#Use pip3 to run pip from python 3
-
 # Create project directory
 cd /opt
 sudo mkdir project
@@ -49,42 +46,40 @@ cd /usr/share/nginx
 sudo rm -R html
 sudo ln -sv /opt/project/MultiDBs-INotebook-WebClient html
 # Make "project" folder searchable
-sudo chmod +x /opt/project
+sudo chmod 755 /opt/project
 
-# Create ipython notebook directory
-cd /opt/project
-sudo mkdir notebook
-cd notebook
+# create database, table and user
+mysql -u root -proot < /opt/project/MultiDBs-INotebook-Server/notebook.sql
 
 # Set notebook server (http://ipython.org/ipython-doc/1/interactive/public_server.html#notebook-public-server)
-ipython
-In [1]: from IPython.lib import passwd
-In [2]: passwd()
-Enter password: notebook
-Verify password: notebook
-Out[2]: 'sha1:e704eb4d8f11:c83c9c8785390abf5d90c366083cd497b0c149b6'
-# Self-assigned certificate
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
-ipython notebook --certfile=mycert.pem
+#ipython
+#In [1]: from IPython.lib import passwd
+#In [2]: passwd()
+#Enter password: notebook
+#Verify password: notebook
+#Out[2]: 'sha1:e704eb4d8f11:c83c9c8785390abf5d90c366083cd497b0c149b6'
+## Self-assigned certificate
+#sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+#ipython notebook --certfile=mycert.pem
 
 # Running a public notebook server
-ipython profile create nbserver
-pico /home/student/.ipython/profile_nbserver/ipython_notebook_config.py
-#"add" something to it
-#run inotebook
-ipython notebook --profile=nbserver
+#ipython profile create nbserver
+#pico /home/student/.ipython/profile_nbserver/ipython_notebook_config.py
+##"add" something to it
+##run inotebook
+#ipython notebook --profile=nbserver
 
-#Set AWS server
+# Set AWS server
 cd /opt/project/MultiDBs-Utils
 sudo mvn install
 cd /opt/project/MultiDBs-INotebook-Server
 sudo mvn install
-#Run AWS server
+# Run AWS server
 cd /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
 nohup java -jar multidbsinotebookserverapi-0.1-SNAPSHOT.jar > log.out 2> error.log < /dev/null &
-lsof -i:7654
+# to check if it is running: "lsof -i:portNumber" on another terminal
 
-#Jupyter Notebook for multi-user
+# Jupyter Notebook for multi-user
 cd /opt/project
 sudo git clone https://github.com/jupyter/jupyterhub.git
 cd /opt/project/jupyterhub
@@ -95,13 +90,13 @@ sudo pip3 install .
 sudo pip install -r dev-requirements.txt
 sudo pip3 install -e .
 
-# run jupyterhub
+# Run jupyterhub
 sudo jupyterhub --port 8888
 
-# manage ipython interface (copy from git to /home/student/.ipython)
+# Manage ipython interface (copy from git to /home/student/.ipython)
 cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/nbextensions /home/student/.ipython
 cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/profile_default /home/student/.ipython
 cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/profile_nbserver /home/student/.ipython
 
-# add linux user
-sudo adduser --gecos "" username # and set password
+# Add linux user
+# sudo adduser --gecos "" username # and set password
