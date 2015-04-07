@@ -24,6 +24,7 @@ public class AddUser {
         try {
             username.createNewFile();
             secr.createNewFile();
+            System.out.println(username.getAbsolutePath());
             BufferedWriter out = new BufferedWriter(new FileWriter(username));
             out.write(email);
             out.close();
