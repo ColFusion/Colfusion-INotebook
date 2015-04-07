@@ -23,9 +23,7 @@ public class AddUser {
             process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
             process = runtime.exec("sudo adduser " + email + " --gecos \"\" --disabled-password");
             process = runtime.exec("echo \"" + email + ":" + password + "\"" + " | sudo chpasswd");
-            //username.delete();
-            //secr.delete();
-            System.out.println("Process created.");
+            System.out.println(email+"~"+password);
             return true;
         } catch (Exception e) {
             // TODO Auto-generated catch block
