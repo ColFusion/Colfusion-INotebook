@@ -51,7 +51,7 @@ public class UserRestService {
         System.out.println(user.getUsername());
         System.out.println(user.getEmail());
         try {
-            AddUser.addUser(user.getEmail(), user.getPassword());
+            AddUser.addUser(user.getUsername(),user.getPassword());
             return Response.status(200).entity("success").build();
         } catch (Exception e) {
             return Response.status(500).build();
