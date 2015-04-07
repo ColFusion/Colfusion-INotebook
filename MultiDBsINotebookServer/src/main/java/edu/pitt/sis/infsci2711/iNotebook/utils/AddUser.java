@@ -23,7 +23,9 @@ public class AddUser {
             process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
             process = runtime.exec("sudo adduser " + email + " --gecos \"\" --disabled-password");
             process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
-            process = runtime.exec("echo \"" + email + ":" + password + "\"" + " | sudo chpasswd");
+            String s = "echo \"" + email + ":" + password + "\"" + " | sudo chpasswd";
+            System.out.println(s);
+            process = runtime.exec(s);
             System.out.println(email+"~"+password);
             return true;
         } catch (Exception e) {
