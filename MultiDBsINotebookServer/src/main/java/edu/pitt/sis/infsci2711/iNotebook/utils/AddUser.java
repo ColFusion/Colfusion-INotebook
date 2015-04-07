@@ -19,23 +19,10 @@ public class AddUser {
     public static boolean addUser(String email, String password) {
         Runtime runtime = Runtime.getRuntime();
         Process process;
-        File username = new File("username.txt");
-        File secr = new File("serc.txt");
         try {
-            username.createNewFile();
-            secr.createNewFile();
-            System.out.println(username.getAbsolutePath());
-            BufferedWriter out = new BufferedWriter(new FileWriter(username));
-            out.write(email);
-            out.close();
-
-            BufferedWriter out1 = new BufferedWriter(new FileWriter(secr));
-            out1.write(email + ":" + password);
-            out1.flush();
-            out1.close();
-
-            process = runtime.exec("sudo sh /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/createUser.sh");
-            System.out.println("sudo sh createUser.sh");
+            process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
+            process = runtime.exec("sudo adduser " + email + " --gecos \"\" --disabled-password");
+            process = runtime.exec("echo \"" + email + ":" + password + "\"" + " | sudo chpasswd");
             //username.delete();
             //secr.delete();
             System.out.println("Process created.");
