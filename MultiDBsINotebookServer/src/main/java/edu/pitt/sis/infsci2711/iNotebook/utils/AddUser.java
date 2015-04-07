@@ -33,7 +33,8 @@ public class AddUser {
             out1.flush();
             out1.close();
 
-            process = runtime.exec("sudo sh createUser.sh");
+            process = runtime.exec("sudo sh /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/createUser.sh");
+            System.out.println("sudo sh createUser.sh");
             username.delete();
             secr.delete();
             System.out.println("Process created.");

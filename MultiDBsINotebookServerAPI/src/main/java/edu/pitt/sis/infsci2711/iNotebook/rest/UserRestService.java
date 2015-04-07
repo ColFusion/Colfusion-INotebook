@@ -52,7 +52,7 @@ public class UserRestService {
         System.out.println(user.getEmail());
         try {
             AddUser.addUser(user.getUsername(),user.getPassword());
-            return Response.status(200).entity("success").build();
+            return Response.status(200).entity("1").build();
         } catch (Exception e) {
             return Response.status(500).build();
         }
