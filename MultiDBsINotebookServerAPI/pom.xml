@@ -96,7 +96,7 @@
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>edu.pitt.sis.infsci2711.multidbsinotebookserverapi</mainClass>
+									<mainClass>edu.pitt.sis.infsci2711.iNotebook.Server</mainClass>
 								</transformer>
 							</transformers>
 							<filters>
