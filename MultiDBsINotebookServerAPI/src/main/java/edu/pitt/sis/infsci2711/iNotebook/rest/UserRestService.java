@@ -15,11 +15,12 @@ import javax.ws.rs.core.Response;
 
 import edu.pitt.sis.infsci2711.iNotebook.business.UserService;
 import edu.pitt.sis.infsci2711.iNotebook.models.UserDBModel;
-import edu.pitt.sis.infsci2711.iNotebook.utils.Notebook;
 import edu.pitt.sis.infsci2711.iNotebook.viewModels.User;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.POST;
+import javax.ws.rs.core.UriBuilder;
 
 /**
  * User Restful API Service
@@ -64,23 +65,22 @@ public class UserRestService {
     // user login
     @Path("login/")
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(final User user){
         UserService userService = new UserService();
+        
         try {
             UserDBModel usersDB = userService.checkUser(convertViewModelToDB(user));
             
             if(usersDB == null){
-                String message = "error";
-                return Response.status(200).entity(message).build();
+                return Response.status(200).entity("1").build();
             }else{
-                String message = "success";
                 //Notebook.RunNotebook(usersDB.getUserName());
-                java.net.URI location = new java.net.URI(URLConfig.serverURL);
-                Response.temporaryRedirect(location).build();
-                return Response.status(200).entity(message).build();
+                return Response.status(200).entity("http://localhost:8888/tree").build();
             }
         }catch(Exception e){
+            System.out.println(e.toString());
             return Response.status(500).build();
         }
     }

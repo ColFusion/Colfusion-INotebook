@@ -33,7 +33,7 @@ public class Notebook {
         }
 
         try {// run ipython notebook
-            process = runtime.exec("ipython notebook ", null, file);
+            process = runtime.exec("sudo ipython notebook ", null, file);
             System.out.println("Process created.");
         } catch (IOException e) {
             // TODO Auto-generated catch block

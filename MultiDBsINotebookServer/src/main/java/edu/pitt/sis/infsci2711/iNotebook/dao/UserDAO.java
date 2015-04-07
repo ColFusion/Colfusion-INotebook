@@ -83,7 +83,7 @@ public class UserDAO {
     public static void delete(final int id) throws SQLException, Exception {
         
         try (Connection connection = JdbcUtil.getConnection()) {
-            String sql = String.format("DELETE FROM Person WHERE id = '%s'", id);
+            String sql = String.format("DELETE * FROM Person WHERE id = '%s'", id);
             try (Statement statement = connection.createStatement()) {
                 System.out.println(sql);
                 int res = statement.executeUpdate(sql);
@@ -94,7 +94,7 @@ public class UserDAO {
 
     public static boolean checkUserName(final UserDBModel user) throws Exception {
         try (Connection connection = JdbcUtil.getConnection()) {
-            String sql = String.format("SELECT FROM Person where username = '%s'", user.getUserName());
+            String sql = String.format("SELECT * FROM Person where username = '%s'", user.getUserName());
             boolean res = false;
             try (Statement statement = connection.createStatement()) {
                 
@@ -111,7 +111,7 @@ public class UserDAO {
 
     public static UserDBModel checkUser(final UserDBModel user) throws Exception {
         try (Connection connection = JdbcUtil.getConnection()) {
-            String sql = String.format("SELECT FROM Person where username = '%s' and  password = '%s'", user.getUserName(), user.getPassword());
+            String sql = String.format("SELECT * FROM Person where email = '%s' and password = '%s'", user.getEmail(), user.getPassword());
             try (Statement statement = connection.createStatement()) {
                 
                 ResultSet rs = statement.executeQuery(sql);

@@ -10,7 +10,7 @@ package edu.pitt.sis.infsci2711.iNotebbok.config;
  * @author Wu
  */
 public class URLConfig {
-    public static final String serverURL = "";
+    public static final String serverURL = "http://127.0.0.1:8888/tree";
     
     public static final String domain = "";
 }
