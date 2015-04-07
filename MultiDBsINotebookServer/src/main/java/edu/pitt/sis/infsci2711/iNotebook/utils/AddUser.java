@@ -24,19 +24,19 @@ public class AddUser {
         try {
             username.createNewFile();
             secr.createNewFile();
-            BufferedWriter out = new BufferedWriter(new FileWriter(username, true));
+            BufferedWriter out = new BufferedWriter(new FileWriter(username));
             out.write(email);
             out.close();
 
-            BufferedWriter out1 = new BufferedWriter(new FileWriter(secr, true));
+            BufferedWriter out1 = new BufferedWriter(new FileWriter(secr));
             out1.write(email + ":" + password);
             out1.flush();
             out1.close();
 
             process = runtime.exec("sudo sh /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/createUser.sh");
             System.out.println("sudo sh createUser.sh");
-            username.delete();
-            secr.delete();
+            //username.delete();
+            //secr.delete();
             System.out.println("Process created.");
             return true;
         } catch (Exception e) {
