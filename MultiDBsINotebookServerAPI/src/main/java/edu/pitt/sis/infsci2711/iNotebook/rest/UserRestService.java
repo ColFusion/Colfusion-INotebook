@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 
 import edu.pitt.sis.infsci2711.iNotebook.business.UserService;
 import edu.pitt.sis.infsci2711.iNotebook.models.UserDBModel;
+import edu.pitt.sis.infsci2711.iNotebook.utils.AddUser;
 import edu.pitt.sis.infsci2711.iNotebook.viewModels.User;
 import java.net.URI;
 import java.util.ArrayList;
@@ -49,13 +50,9 @@ public class UserRestService {
     public Response register(final User user) {
         System.out.println(user.getUsername());
         System.out.println(user.getEmail());
-        UserService userService = new UserService();
         try {
-            UserDBModel usersDB = userService.add(convertViewModelToDB(user));
-
-            User userInserted = convertDbToViewModelWithoutPwd(usersDB);
-            
-            return Response.status(200).entity(userInserted).build();
+            AddUser.addUser(user.getEmail(), user.getPassword());
+            return Response.status(200).entity("success").build();
         } catch (Exception e) {
             return Response.status(500).build();
         }

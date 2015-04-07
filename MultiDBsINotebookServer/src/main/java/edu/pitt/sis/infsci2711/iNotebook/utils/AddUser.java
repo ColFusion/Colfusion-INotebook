@@ -6,6 +6,8 @@
 package edu.pitt.sis.infsci2711.iNotebook.utils;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -17,11 +19,23 @@ public class AddUser {
     public static boolean addUser(String email, String password) {
         Runtime runtime = Runtime.getRuntime();
         Process process;
-        BufferedWriter writer = null;
-        try {// run ipython notebook
-            process = runtime.exec("sudo useradd --gecos \"\" "+email);
-            
-            
+        File username = new File("username.txt");
+        File secr = new File("serc.txt");
+        try {
+            username.createNewFile();
+            secr.createNewFile();
+            BufferedWriter out = new BufferedWriter(new FileWriter(username, true));
+            out.write(email);
+            out.close();
+
+            BufferedWriter out1 = new BufferedWriter(new FileWriter(secr, true));
+            out1.write(email + ":" + password);
+            out1.flush();
+            out1.close();
+
+            process = runtime.exec("sudo sh createUser.sh");
+            username.delete();
+            secr.delete();
             System.out.println("Process created.");
             return true;
         } catch (Exception e) {
