@@ -21,7 +21,9 @@ public class AddUser {
         Process process;
         try {
             process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
+            System.out.println("echo \"infsci27115\" | sudo -S -v");
             process = runtime.exec("sudo adduser " + email + " --gecos \"\" --disabled-password");
+            System.out.println("sudo adduser " + email + " --gecos \"\" --disabled-password");
             process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
             String s = "echo \"" + email + ":" + password + "\"" + " | sudo chpasswd";
             System.out.println(s);
