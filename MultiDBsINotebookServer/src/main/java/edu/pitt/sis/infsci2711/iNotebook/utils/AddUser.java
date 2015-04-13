@@ -18,7 +18,7 @@ public class AddUser {
 
     public static boolean addUser(String email, String password) {
         Runtime runtime = Runtime.getRuntime();
-        Process process;
+        Process process,process2;
         try {
             //process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
             //System.out.println("echo \"infsci27115\" | sudo -S -v");
@@ -28,10 +28,13 @@ public class AddUser {
             //String s = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
             System.out.println("echo \"infsci27115\" | sudo -S -v");
             String s = "sudo useradd -d /home/"+email+" -m -p "+password+" "+email;
+            String s2 = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
             System.out.println(s);
             process = runtime.exec(s);
-            System.out.println(email+"~"+password);
+            System.out.println(s2);
+            process2 = runtime.exec(s2);
             process.destroy();
+            process2.destroy();
             return true;
         } catch (Exception e) {
             // TODO Auto-generated catch block
