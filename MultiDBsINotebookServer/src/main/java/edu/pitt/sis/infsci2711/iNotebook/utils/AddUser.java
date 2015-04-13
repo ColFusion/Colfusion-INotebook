@@ -20,12 +20,14 @@ public class AddUser {
         Runtime runtime = Runtime.getRuntime();
         Process process;
         try {
-            process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
+            //process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
+            //System.out.println("echo \"infsci27115\" | sudo -S -v");
+            //process = runtime.exec("sudo adduser " + email + " --gecos \"\" --disabled-password");
+            //System.out.println("sudo adduser " + email + " --gecos \"\" --disabled-password");
+            //process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
+            //String s = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
             System.out.println("echo \"infsci27115\" | sudo -S -v");
-            process = runtime.exec("sudo adduser " + email + " --gecos \"\" --disabled-password");
-            System.out.println("sudo adduser " + email + " --gecos \"\" --disabled-password");
-            process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
-            String s = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
+            String s = "sudo useradd -d /home/"+email+" -m -p "+password+" "+email;
             System.out.println(s);
             process = runtime.exec(s);
             System.out.println(email+"~"+password);
