@@ -29,7 +29,9 @@ public class AddUser {
             //System.out.println("echo \"infsci27115\" | sudo -S -v");
             //String s = "sudo useradd -d /home/"+email+" -m -p "+password+" "+email;
             //String s2 = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
+            System.out.println("before");
             process = runtime.exec(String.format("./pleaseAddUser.sh %s %s", email, password));
+            System.out.println("after");
             process.waitFor();
             //System.out.println(s);
             //process = runtime.exec(s);
@@ -40,6 +42,7 @@ public class AddUser {
             return true;
         } catch (Exception e) {
             // TODO Auto-generated catch block
+            System.out.println(e);
             e.printStackTrace();
             return false;
         }
