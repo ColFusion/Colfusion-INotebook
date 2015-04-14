@@ -26,15 +26,17 @@ public class AddUser {
             //System.out.println("sudo adduser " + email + " --gecos \"\" --disabled-password");
             //process = runtime.exec("echo \"infsci27115\" | sudo -S -v");
             //String s = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
-            System.out.println("echo \"infsci27115\" | sudo -S -v");
-            String s = "sudo useradd -d /home/"+email+" -m -p "+password+" "+email;
-            String s2 = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
-            System.out.println(s);
-            process = runtime.exec(s);
-            System.out.println(s2);
-            process2 = runtime.exec(s2);
+            //System.out.println("echo \"infsci27115\" | sudo -S -v");
+            //String s = "sudo useradd -d /home/"+email+" -m -p "+password+" "+email;
+            //String s2 = "echo \"" + email + ":" + password + "\" | sudo chpasswd ";
+            process = runtime.exec(String.format("./pleaseAddUser.sh %s %s", email, password));
+            process.waitFor();
+            //System.out.println(s);
+            //process = runtime.exec(s);
+            //System.out.println(s2);
+            //process2 = runtime.exec(s2);
             process.destroy();
-            process2.destroy();
+            //process2.destroy();
             return true;
         } catch (Exception e) {
             // TODO Auto-generated catch block
