@@ -100,3 +100,10 @@ cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/profile_nbserver /home/s
 
 # Add linux user
 # sudo adduser --gecos "" username # and set password
+
+#!/bin/bash
+
+pass=$(openssl passwd -crypt $2)
+echo $pass
+
+echo infsci27115 | sudo -S useradd -m -p $pass $1
