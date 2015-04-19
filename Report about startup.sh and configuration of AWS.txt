@@ -1,0 +1,13 @@
+About aws configuration:
+
+For ipython project, we run two server: java server for portal website and ipython server to deal with actual ipython works. 
+
+Before starting up the server, we need to make sure that the port 8888 is open to public, and is not binding to other process. It is reserved for jupyter server.
+
+To start up the server in a clean machine, just run startup.sh in https://github.com/infsci2711/MultiDBs-INotebook-Server.git . Probably it requires sudo permission. Besides, in startup.sh, it assume that it is logged in as ¡°student¡± account, and have the same password as instructor gave us before. The first command line ¡°echo "infsci27115" | sudo -S -v¡± will update a temporary credential, so the system will not require sudo password in a period of time.
+
+The first section is ¡°Install mavan, git, ipython and its dependencies.¡± It uses apt-get and pip to install all the packages for ipython server. In the section ¡°Install mysql server, with password root for user root¡±, it should automatically set ¡°root¡± as password of ¡°root¡± mysql user. If it fails, we need to type in root password manually. 
+
+In the middle, it sets java server from git, make some configuration, and run the java server. In ¡°Jupyter Notebook for multi-user¡±, we install jupyter server which is a multi-user version of ipython. 
+
+In the section ¡°Copy jupyter server configuration file from git¡±, we copy a js and css file to jupyter server. The destination of file should be default in ¡°/usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/¡±, however, if the jupyter server is not here, we need to find out where the jupyter server is, and then copy the two files to the server. Finally, run the jupyter server to port 8888.

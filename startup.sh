@@ -2,11 +2,10 @@
 # This is a script to set up the "fresh" AWS server to the most updated state.
 # Any required settings made on the AWS server should take a note to this file. Such as create database table, or insert some rows.
 
-# Note: This file is designed to be run by "student" account.
-
+# Note: This file is designed to be run by "student" account with password "infsci27115".
 echo "infsci27115" | sudo -S -v #this line update a temporary credential
 
-# Installation
+# Install mavan, git, ipython and its dependencies.
 sudo apt-get install maven
 sudo apt-get install git
 sudo apt-get install openjdk-7-jdk
@@ -19,7 +18,7 @@ sudo pip install Jinja2
 sudo pip install tornado
 sudo pip3 install jsonschema
 
-# Install mysql server, with password root for root
+# Install mysql server, with password root for user root.
 echo mysql-server mysql-server/root_password password root | sudo debconf-set-selections
 echo mysql-server mysql-server/root_password_again password root | sudo debconf-set-selections
 sudo apt-get install mysql-server
@@ -52,7 +51,8 @@ cd /opt/project/MultiDBs-INotebook-Server
 sudo mvn install
 # Run AWS server
 cd /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
-nohup java -jar multidbsinotebookserverapi-0.1-SNAPSHOT.jar > log.out 2> error.log < /dev/null &# this line runs java server
+# Run java server
+nohup java -jar multidbsinotebookserverapi-0.1-SNAPSHOT.jar > log.out 2> error.log < /dev/null &
 # to check if it is running: "lsof -i:portNumber" on another terminal
 
 # Jupyter Notebook for multi-user
@@ -66,10 +66,9 @@ sudo pip3 install .
 sudo pip install -r dev-requirements.txt
 sudo pip3 install -e .
 
-# Manage ipython interface (copy from git to /home/student/.ipython)
-cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/nbextensions /home/student/.ipython
-cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/profile_default /home/student/.ipython
-cp -r /opt/project/MultiDBs-INotebook-IPython-Extention/profile_nbserver /home/student/.ipython
+# Copy jupyter server configuration file from git
+cp opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
+cp opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
 
 # Run jupyterhub
 sudo jupyterhub --port 8888
