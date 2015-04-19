@@ -49,6 +49,8 @@ cd /opt/project/MultiDBs-Utils
 sudo mvn install
 cd /opt/project/MultiDBs-INotebook-Server
 sudo mvn install
+# Move a .sh file to target for java server
+cp /opt/project/MultiDBs-INotebook-Server/pleaseAddUser.sh /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
 # Run AWS server
 cd /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
 # Run java server
