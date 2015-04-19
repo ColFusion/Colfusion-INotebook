@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Slate is a responsive theme for GitHub Pages" />
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Slate is a responsive theme for GitHub Pages" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>MultiDBs-INotebook-Server : Use IPyhon Notebook to do analysis</title>
-  </head>
+        <title>MultiDBs-INotebook-Server : Use IPython Notebook to analyze data</title>
+    </head>
 
-  <body>
+    <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/infsci2711/MultiDBs-INotebook-Server">View on GitHub</a>
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/infsci2711/MultiDBs-INotebook-Server">View on GitHub</a>
 
-          <h1 id="project_title">MultiDBs-INotebook-Server</h1>
-          <h2 id="project_tagline">Use IPyhon Notebook to do analysis</h2>
+                <h1 id="project_title">MultiDBs-INotebook-Server</h1>
+                <h2 id="project_tagline">Use IPyhon Notebook to analyze data</h2>
 
-          <section id="downloads">
-            <a class="zip_download_link" href="https://github.com/infsci2711/MultiDBs-INotebook-Server/zipball/master">Download this project as a .zip file</a>
-            <a class="tar_download_link" href="https://github.com/infsci2711/MultiDBs-INotebook-Server/tar/master">Download this project as a tar.gz file</a>
-          </section>
-        </header>
-    </div>
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/infsci2711/MultiDBs-INotebook-Server/zipball/master">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/infsci2711/MultiDBs-INotebook-Server/tar/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
+        </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>Description</h1>
-        <p>Slate is a simple theme that I created for the <a href="http://pages.github.com">GitHub Pages automatic generator</a>. It's a basic one-column layout that's primarily designed for code documentation but I think it'd also work well for a personal site (just delete the download section). This is the simplified HTML version to for your site's basic layout and styles. Clone these files and replace this content to get the ball rolling.</p>
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                <br/>
+                <h2>Description</h2>
+                <p>Slate is a simple theme that I created for the <a href="http://pages.github.com">GitHub Pages automatic generator</a>. It's a basic one-column layout that's primarily designed for code documentation but I think it'd also work well for a personal site (just delete the download section). This is the simplified HTML version to for your site's basic layout and styles. Clone these files and replace this content to get the ball rolling.</p>
+                <br/>
 
-        <h1>Install iPython</h1>
+                <h2>Install iPython</h2>
 
-        <p>Installing IPython is the first step we should take. Here is simple introduction of several ways to install IPython. For more information, please visit  <a href="http://ipython.org/notebook.html">Install IPython</a> to get simplified installation instructions that should work for most of the users.</p>
-        <ul>
-          <li>
-               <P>If you already have Python, you can get IPthon with <a href="https://pypi.python.org/pypi/pip"> pip</a></P>
-              <div class="highlight"><pre><code class="language-xml" data-lang="xml">
-pip install ipython
-                      </code></pre>
-              </div>
-              <p>Or if you want to also get the dependencies for the IPython notebook:</p>
-              <div class="highlight"><pre><code class="language-xml" data-lang="xml">
-pip install "ipython[notebook]"
-                      </code></pre>
-              </div>
-          </li>
-          <li>
-               <P>For a new starter, you are suggested to  get IPython with the <a href="http://continuum.io/downloads">Anaconda</a> or <a href="https://store.enthought.com/downloads/">Canopy</a> Python distributions, which provide Python 2.7, IPython and all of its dependences as well as a complete set of open source packages for scientific computing and data science.</P>
-              <div class="highlight"><pre><code class="language-xml" data-lang="xml">
+                <p>Installing IPython is the first step we should take. Here is simple introduction of several ways to install IPython. For more information, please visit  <a href="http://ipython.org/notebook.html">Install IPython</a> to get simplified installation instructions that should work for most of the users.</p>
+                <ul>
+                    <li>
+                        <P>If you already have Python, you can get IPthon with <a href="https://pypi.python.org/pypi/pip"> pip</a></P>
+                        <div class="highlight">
+                            <code class="language-xml" data-lang="xml">
+                                pip install ipython
+                            </code>
+                        </div>
+                        <p>Or if you want to also get the dependencies for the IPython notebook:</p>
+                        <div class="highlight">
+                            <code class="language-xml" data-lang="xml">
+                                pip install "ipython[notebook]"
+                            </code>
+                        </div>
+                    </li>
+                    <li>
+                        <P>For a new starter, you are suggested to  get IPython with the <a href="http://continuum.io/downloads">Anaconda</a> or <a href="https://store.enthought.com/downloads/">Canopy</a> Python distributions, which provide Python 2.7, IPython and all of its dependences as well as a complete set of open source packages for scientific computing and data science.</P>
+                        <div class="highlight"><pre><code class="language-xml" data-lang="xml">
 %%for Anaconda:
 conda update conda
 conda update ipython ipython-notebook ipython-qtconsole
@@ -60,80 +64,83 @@ conda update ipython ipython-notebook ipython-qtconsole
 %%Enthought Canopy:
 enpkg ipython
         </code></pre></div>
-          </li>
-        </ul>
-        <h1>Install Jetty Server</h1>
+                    </li>
+                </ul>
+                <br/>
 
-        <p>Installing IPython is the first step we should take. Here is simple introduction of several ways to install IPython. For more information, please visit  <a href="http://ipython.org/notebook.html">Install IPython</a> to get simplified installation instructions that should work for most of the users.</p>
-        
-        <h1>Configuration</h1>
+                <h2>Install Jetty Server</h2>
 
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
+                <p>Installing IPython is the first step we should take. Here is simple introduction of several ways to install IPython. For more information, please visit  <a href="http://ipython.org/notebook.html">Install IPython</a> to get simplified installation instructions that should work for most of the users.</p>
+                <br/>
 
-        <h1>How to use</h1>
+                <h2>Configuration</h2>
 
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
+                <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
+                <br/>
 
-        <h1>APIs</h1>
+                <h2>How to use</h2>
 
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
+                <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
+                <br/>
+
+                <h2>APIs</h2>
+
+                <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
 
 
-        <p>Maybe you want to print <code>robot</code> to the console 1000 times. Why not?</p>
-<pre>
+                <p>Maybe you want to print <code>robot</code> to the console 1000 times. Why not?</p>
+                <pre>
 def robot_invasion
 puts("robot " * 1000)
 end
-</pre>
+                </pre>
 
-<p>How about we throw some angle braces and ampersands in there?</p>
+                <p>How about we throw some angle braces and ampersands in there?</p>
 
-<pre><code>
+                <pre><code>
 &lt;div class="footer"&gt;
 &amp;copy; 2013 Zorg Industries
 &lt;/div&gt;
 </code></pre>
+                <br/>
 
-        
-        <h1>Team</h1>
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>Hu Yiheng</td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td>1</td>
-            <td><a href="https://github.com/InternetFarmer">Wu Jiadong</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><a href="https://github.com/stefxyx">Xie Yinxing</a></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><a href="https://github.com/nancyzqqq">Zhang Qian</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><a href="https://github.com/zyyswallow">Zhou Yanyan</a></td>
-          </tr>
-        </table>
-        
-      </section>
-    </div>
+                <h2>Team Members</h2>
+                <ul>
+                    <li>
+                        Hu Yiheng
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://github.com/InternetFarmer">Wu Jiadong</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://github.com/stefxyx">Xie Yinxing</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://github.com/nancyzqqq">Zhang Qian</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://github.com/zyyswallow">Zhou Yanyan</a>
+                    </li>
+                </ul>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Slate theme maintained by <a href="https://github.com/jasoncostello">Jason Costello</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+            </section>
+        </div>
 
-  </body>
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
+                <p class="copyright">Slate theme maintained by <a href="https://github.com/jasoncostello">Jason Costello</a></p>
+                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+            </footer>
+        </div>
+
+    </body>
 </html>
