@@ -73,11 +73,11 @@ enpkg ipython
                 <p>Installing IPython is the first step we should take. Here is simple introduction of several ways to install IPython. For more information, please visit  <a href="http://ipython.org/notebook.html">Install IPython</a> to get simplified installation instructions that should work for most of the users.</p>
                 <br/>
 
-                <h2>Configuration</h2>
+                <h2>Configuration Alert</h2>
 
-                For ipython project, we run two server: java server for portal website and ipython server to deal with actual ipython works. 
+                <p>There are two servers in our system: Java server for portal website and ipython server to deal with actual notebook staffs. 
 
-Before starting up the server, we need to make sure that the port 8888 is open to public, and is not binding to other process. It is reserved for jupyter server.
+                <p>Before starting up the server, users need to make sure that the port 8888 is open to public, and is not binding to other process. It is reserved for jupyter server.<p>
 
 To start up the server in a clean machine, just run startup.sh in https://github.com/infsci2711/MultiDBs-INotebook-Server.git . Probably it requires sudo permission. Besides, in startup.sh, it assume that it is logged in as “student” account, and have the same password as instructor gave us before. The first command line “echo "infsci27115" | sudo -S -v” will update a temporary credential, so the system will not require sudo password in a period of time.
 
