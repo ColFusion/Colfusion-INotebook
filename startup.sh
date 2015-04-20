@@ -17,6 +17,7 @@ sudo pip install tornado
 sudo pip3 install jsonschema
 
 # Install mysql server, with password root for user root.
+# Replace the password if needed
 echo mysql-server mysql-server/root_password password root | sudo debconf-set-selections
 echo mysql-server mysql-server/root_password_again password root | sudo debconf-set-selections
 sudo apt-get install mysql-server
