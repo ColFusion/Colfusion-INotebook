@@ -2,9 +2,6 @@
 # This is a script to set up the "fresh" AWS server to the most updated state.
 # Any required settings made on the AWS server should take a note to this file. Such as create database table, or insert some rows.
 
-# Note: This file is designed to be run by "student" account with password "infsci27115".
-echo "infsci27115" | sudo -S -v #this line update a temporary credential
-
 # Install mavan, git, ipython and its dependencies.
 sudo apt-get install maven
 sudo apt-get install git
