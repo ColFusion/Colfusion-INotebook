@@ -324,11 +324,11 @@ section {
   padding-bottom:50px;
 }
 
-#team-member {
+#team-members {
    list-style-type:none;
 }
 
-#team-member li {
+#team-members li {
    float:left;
 }
 
