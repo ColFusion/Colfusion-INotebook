@@ -309,6 +309,14 @@ Full-Width Styles
   background: #212121;
 }
 
+#team-members {
+   list-style-type:none;
+}
+
+#team-members li {
+   float:left;
+}
+
 /*******************************************************************************
 Small Device Styles
 *******************************************************************************/
