@@ -1,13 +1,2 @@
 # MultiDBs-INotebook-Server
-## Description
-Use IPyhon Notebook to do analysis
-
-## Server
-Use Jetty as web server
-
-Use Jersey to implement RESTful web API
-
-Use Ipython to display the database
-
-## Ipython Notebook Extension
-
+All the description and configration files has been moved to <a href='http://infsci2711.github.io/MultiDBs-INotebook-Server/'>Project Homepage</a>
