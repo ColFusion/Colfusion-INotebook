@@ -324,6 +324,14 @@ section {
   padding-bottom:50px;
 }
 
+#team-member {
+   list-style-type:none;
+}
+
+#team-member li {
+   float:left;
+}
+
 
 /* Footer */
 
