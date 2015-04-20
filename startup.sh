@@ -9,6 +9,7 @@ sudo apt-get install openjdk-7-jdk
 sudo apt-get install nginx
 sudo apt-get install python-pip
 sudo apt-get install python3-pip
+sudo apt-get install python3-matplotlib
 sudo pip install ipython
 sudo pip3 install pyzmq
 sudo pip install Jinja2
@@ -46,12 +47,13 @@ cd /opt/project/MultiDBs-Utils
 sudo mvn install
 cd /opt/project/MultiDBs-INotebook-Server
 sudo mvn install
-# Move a .sh file to target for java server
+# Move a .sh and config file to target for java server
 cp /opt/project/MultiDBs-INotebook-Server/pleaseAddUser.sh /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
+cp /opt/project/MultiDBs-INotebook-Server/config.properties /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
 # Run AWS server
 cd /opt/project/MultiDBs-INotebook-Server/MultiDBsINotebookServerAPI/target
 # Run java server
-nohup java -jar multidbsinotebookserverapi-0.1-SNAPSHOT.jar > log.out 2> error.log < /dev/null &
+nohup java -jar multidbsinotebookserverapi-0.1-SNAPSHOT.jar config.properies> log.out 2> error.log < /dev/null &
 # to check if it is running: "lsof -i:portNumber" on another terminal
 
 # Jupyter Notebook for multi-user
@@ -66,6 +68,7 @@ sudo pip install -r dev-requirements.txt
 sudo pip3 install -e .
 
 # Copy jupyter server configuration file from git
+# Replace the IPython directory with your own one
 cp opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
 cp opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
 
