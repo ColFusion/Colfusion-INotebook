@@ -74,12 +74,6 @@ enpkg ipython
 
                 <p>Before starting up the server, users need to make sure that the port 8888 is open to public, and is not binding to other process. It is reserved for jupyter server.<p>
 
-                <p>To start up the server in a clean machine, just run startup.sh in the project directory. 
-                <div class="highlight"><pre><code class="language-xml" data-lang="xml">
-sudo ./startup.sh
-                </code></pre></div>
-                </p>
-
                 <p>The first part of installation is to install mysql server, with password root for user root, it should automatically set “root” as password of “root” mysql user. If it fails, you should try to replace the password with your own. 
                 <div class="highlight"><pre><code class="language-xml" data-lang="xml">
 echo mysql-server mysql-server/root_password password root | sudo debconf-set-selections
@@ -101,8 +95,12 @@ cp opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/py
 cp opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
                 </code></pre></div>
                 </p>
-                <p>Finally, run the jupyter server to port 8888</p>
- 
+                
+                <p>After setting all the configuration in the startup.sh, just start up the server in a clean machine, run startup.sh in the project directory. 
+                <div class="highlight"><pre><code class="language-xml" data-lang="xml">
+sudo ./startup.sh
+                </code></pre></div>
+                </p>
 
 
                 <h2>How to use</h2>
