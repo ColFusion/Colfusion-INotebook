@@ -76,7 +76,7 @@ enpkg ipython
 
                 <p>To start up the server in a clean machine, just run startup.sh in the project directory. 
                 <div class="highlight"><pre><code class="language-xml" data-lang="xml">
-                    sudo ./startup.sh
+sudo ./startup.sh
                 </code></pre></div>
                 </p>
 
@@ -93,10 +93,10 @@ enpkg ipython
 
                 <p>The last part is to modify some ipython build-in files to implement some customize functionalities. You can change the defalut ipython path to your own one if your ipythn is not installed in the default directory
                 <div class="highlight"><pre><code class="language-xml" data-lang="xml">
-                    # Copy jupyter server configuration file from git
-                    # Replace the IPython directory with your own one
-                    cp opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
-                    cp opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
+# Copy jupyter server configuration file from git
+# Replace the IPython directory with your own one
+cp opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
+cp opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
                 </code></pre></div>
                 </p>
                 <p>Finally, run the jupyter server to port 8888</p>
