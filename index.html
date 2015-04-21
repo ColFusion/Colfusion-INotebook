@@ -40,6 +40,23 @@
                 <p>Installing IPython is the first step we should take. Here is simple introduction of several ways to install IPython. For more information, please visit  <a href="http://ipython.org/notebook.html">Install IPython</a> to get simplified installation instructions that should work for most of the users.</p>
                 <ul>
                     <li>
+                        <p># Install mavan, git, and dependencies for ipython server: </p>
+                        <div class="highlight">
+                            <code class="language-xml" data-lang="xml">
+                                sudo apt-get install maven
+                                sudo apt-get install git
+                                sudo apt-get install openjdk-7-jdk
+                                sudo apt-get install nginx
+                                sudo apt-get install python-pip
+                                sudo apt-get install python3-pip
+                                sudo apt-get install python3-matplotlib
+                                sudo pip3 install pyzmq
+                                sudo pip install Jinja2
+                                sudo pip install tornado
+                                sudo pip3 install jsonschema
+                            </code>
+                        </div>
+                        
                         <P>If you already have Python, you can get IPthon with <a href="https://pypi.python.org/pypi/pip"> pip</a></P>
                         <div class="highlight">
                             <code class="language-xml" data-lang="xml">
@@ -50,6 +67,20 @@
                         <div class="highlight">
                             <code class="language-xml" data-lang="xml">
                                 pip install "ipython[notebook]"
+                            </code>
+                        </div>
+                        <p>Install jupyter server (multi-user ipython server): </p>
+                        <div class="highlight">
+                            <code class="language-xml" data-lang="xml">
+                                cd /opt/project
+                                sudo git clone https://github.com/jupyter/jupyterhub.git
+                                cd /opt/project/jupyterhub
+                                sudo apt-get install npm nodejs-legacy
+                                sudo npm install -g configurable-http-proxy
+                                sudo pip install -r requirements.txt
+                                sudo pip3 install .
+                                sudo pip install -r dev-requirements.txt
+                                sudo pip3 install -e .
                             </code>
                         </div>
                     </li>
