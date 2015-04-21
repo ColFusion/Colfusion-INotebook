@@ -124,9 +124,30 @@ sudo ./startup.sh
                     <img height="150" src="images/database.png"/>
                     <img height="300" src="images/connect.png"/>
 
-                    <li></li>
-                    <p></p>
-                    <img />
+                    <li>Use data from database</li>
+                    <p>Now, you can start to use the data to do analysis. For example, if you want to get the data of two columns "mpg" and "horsepower" from database "car". you can execute a SQL statement <code>select horsepower, mpg from 25.cars</code>in notebook cell. Than you will get the data from the databse. The data is displayed in the form of JSON object.</p>
+                    <img src=""></img>
+                    <p>You can uniform the data to discard schema and to convert data type using Python. The following code gives an example of data pre-processing and scatter plot.</p>
+                    <p>
+                    <div class="highlight"><pre><code class="language-xml" data-lang="python">
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+data=data0['data']
+dataset1=[]
+dataset2=[]
+for i in range(len(data)):
+    dataset1.insert(i,int(data[i]['row'][0]))
+for i in range(len(data)):
+    dataset2.insert(i,int(data[i]['row'][1]))
+
+x = dataset1
+y = dataset2
+
+plt.scatter(x,y)
+plt.show()
+        </code></pre></div></p>
+                    <img src=""></img>
                 </ol>
                 </p>
                 <br/>
