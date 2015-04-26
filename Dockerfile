@@ -1,4 +1,4 @@
-FROM jupyter/jupyterhub:latest
+FROM ipython/ipython
 MAINTAINER Evgeny Karataev <Karataev.Evgeny@gmail.com>
 
 RUN apt-get update && apt-get install -y \
@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
 	python3-matplotlib
+
+# install js dependencies
+RUN npm install -g configurable-http-proxy
 
 RUN mkdir -p /var/run/sshd
 
@@ -39,6 +42,7 @@ ENTRYPOINT ["/home/notebook/entrypoint.sh"]
 
 EXPOSE 22
 EXPOSE 7654
+EXPOSE 8888
 
 VOLUME /opt/project/deployed
 
