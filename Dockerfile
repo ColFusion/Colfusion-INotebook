@@ -57,6 +57,8 @@ EXPOSE 22
 EXPOSE 7654
 EXPOSE 8888
 
+
+
 VOLUME /opt/project/deployed
 
 CMD ["/usr/sbin/sshd", "-D"]
