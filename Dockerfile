@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM jupyter/jupyterhub:latest
 MAINTAINER Evgeny Karataev <Karataev.Evgeny@gmail.com>
 
 RUN apt-get update && apt-get install -y \
@@ -6,16 +6,7 @@ RUN apt-get update && apt-get install -y \
     openjdk-7-jdk \
     curl \
     git \
-	python-pip \
-	python3-pip \
 	python3-matplotlib
-
-RUN yes w | pip install ipython \
-	Jinja2 \
-	tornado
-
-RUN	yes w | pip3 install pyzmq \
-	jsonschema
 
 RUN mkdir -p /var/run/sshd
 
@@ -48,9 +39,7 @@ ENTRYPOINT ["/home/notebook/entrypoint.sh"]
 
 EXPOSE 22
 EXPOSE 7654
-EXPOSE 8888
 
 VOLUME /opt/project/deployed
-
 
 CMD ["/usr/sbin/sshd", "-D"]

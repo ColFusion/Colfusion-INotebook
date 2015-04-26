@@ -27,17 +27,6 @@ echo "cloning git repos"
 git clone https://github.com/infsci2711/MultiDBs-INotebook-IPython-Extention.git
 git clone https://github.com/infsci2711/MultiDBs-INotebook-Server.git
 git clone https://github.com/infsci2711/MultiDBs-Utils.git
-git clone https://github.com/jupyter/jupyterhub.git
-
-echo "setting up jupyter"
-
-#cd /opt/project/jupyterhub
-#apt-get install -y npm nodejs-legacy
-#yes w | npm install -g configurable-http-proxy
-#yes w | pip install -r requirements.txt
-#yes w | pip3 install .
-#yes w | pip install -r dev-requirements.txt
-#yes w | pip3 install -e .
 
 echo "building utils project"
 
@@ -62,15 +51,15 @@ cp /opt/project/MultiDBs-INotebook-Server/config.properties /opt/project/deploye
 
 echo "copy jupyter server configuration file from git"
 echo "replace the IPython directory with your own one"
-#cp /opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
-#cp /opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
+cp /opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
+cp /opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
 
 echo "starting java server"
 
 cd /opt/project/deployed
-#nohup java -jar  /opt/project/deployed/multidbsinotebookserverapi-0.1-SNAPSHOT.jar /opt/project/deployed/config.properties > /opt/project/deployed/log.out 2> /opt/project/deployed/error.log < /dev/null &
+nohup java -jar  /opt/project/deployed/multidbsinotebookserverapi-0.1-SNAPSHOT.jar /opt/project/deployed/config.properties > /opt/project/deployed/log.out 2> /opt/project/deployed/error.log < /dev/null &
 
-echo "run jupyter"
+#echo "run jupyter"
 #cd /opt/project/jupyterhub
 #jupyterhub --port 8888
 
