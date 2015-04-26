@@ -32,12 +32,12 @@ git clone https://github.com/jupyter/jupyterhub.git
 echo "setting up jupyter"
 
 cd /opt/project/jupyterhub
-apt-get install npm nodejs-legacy
-npm install -g configurable-http-proxy
-pip install -r requirements.txt
-pip3 install .
-pip install -r dev-requirements.txt
-pip3 install -e .
+apt-get install -y npm nodejs-legacy
+yes w | npm install -g configurable-http-proxy
+yes w | pip install -r requirements.txt
+yes w | pip3 install .
+yes w | pip install -r dev-requirements.txt
+yes w | pip3 install -e .
 
 echo "building utils project"
 
