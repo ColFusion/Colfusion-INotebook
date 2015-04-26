@@ -8,9 +8,6 @@ RUN apt-get update && apt-get install -y \
     git \
 	python3-matplotlib
 
-# install js dependencies
-RUN npm install -g configurable-http-proxy
-
 RUN mkdir -p /var/run/sshd
 
 ENV MAVEN_VERSION 3.2.5
@@ -37,6 +34,22 @@ COPY docker-entrypoint.sh /home/notebook/entrypoint.sh
 COPY notebook.sql /home/notebook/notebook.sql
 
 RUN chmod -R 777 /home/notebook
+
+
+# install js dependencies
+RUN npm install -g configurable-http-proxy
+RUN mkdir -p /srv/
+WORKDIR /srv/
+
+RUN git clone https://github.com/jupyter/jupyterhub.git
+
+WORKDIR /srv/jupyterhub/
+
+RUN pip3 install -r requirements.txt
+RUN pip3 install -r dev-requirements.txt
+RUN pip3 install .
+RUB pip3 install -e .
+
 
 ENTRYPOINT ["/home/notebook/entrypoint.sh"]
 
