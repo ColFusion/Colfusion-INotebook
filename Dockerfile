@@ -30,7 +30,7 @@ RUN chown notebook /home/notebook
 
 RUN echo "notebook:notebook" | chpasswd
 
-COPY docker-entrypoint.sh /home/notebook/entrypoint.sh
+COPY docker-entry.sh /home/notebook/entry.sh
 COPY notebook.sql /home/notebook/notebook.sql
 
 RUN chmod -R 777 /home/notebook
