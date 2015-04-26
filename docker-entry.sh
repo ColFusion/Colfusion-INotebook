@@ -54,7 +54,7 @@ echo "setting jupyterhub"
 echo "copy jupyter server configuration file from git"
 echo "replace the IPython directory with your own one"
 
-cp /opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/override.css
+cp /opt/project/MultiDBs-INotebook-IPython-Extention/css/override.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/override.css
 
 cp /opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
 
