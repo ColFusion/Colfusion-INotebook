@@ -53,16 +53,16 @@ echo "setting jupyterhub"
 
 echo "copy jupyter server configuration file from git"
 echo "replace the IPython directory with your own one"
-#cp /opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
-#cp /opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/overiride.css
+cp /opt/project/MultiDBs-INotebook-IPython-Extention/js/main.js /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/js/main.js
+cp /opt/project/MultiDBs-INotebook-IPython-Extention/css/overiride.css /usr/local/lib/python3.4/dist-packages/IPython/html/static/notebook/css/override.css
 
 echo "starting java server"
 
 cd /opt/project/deployed
-#nohup java -jar  /opt/project/deployed/multidbsinotebookserverapi-0.1-SNAPSHOT.jar /opt/project/deployed/config.properties > /opt/project/deployed/log.out 2> /opt/project/deployed/error.log < /dev/null &
+nohup java -jar  /opt/project/deployed/multidbsinotebookserverapi-0.1-SNAPSHOT.jar /opt/project/deployed/config.properties > /opt/project/deployed/log.out 2> /opt/project/deployed/error.log < /dev/null &
 
 echo "run jupyter"
 cd /srv/jupyterhub/
-#jupyterhub --port 8888
+jupyterhub --port 8888
 
 exec "$@"
