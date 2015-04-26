@@ -14,7 +14,7 @@ service mysql start
 
 echo "running sql script"
 
-mysql -uroot -p$MYSQL_PASSWORD < /home/query/notebook.sql
+mysql -uroot -p$MYSQL_PASSWORD < /home/notebook/notebook.sql
 
 echo "creating folder for servers source code"
 
