@@ -48,7 +48,7 @@ WORKDIR /srv/jupyterhub/
 RUN pip3 install -r requirements.txt
 RUN pip3 install -r dev-requirements.txt
 RUN pip3 install .
-RUB pip3 install -e .
+RUN pip3 install -e .
 
 
 ENTRYPOINT ["/home/notebook/entrypoint.sh"]
