@@ -51,7 +51,7 @@ RUN pip3 install .
 RUN pip3 install -e .
 
 
-ENTRYPOINT ["/home/notebook/entrypoint.sh"]
+ENTRYPOINT ["/home/notebook/entry.sh"]
 
 EXPOSE 22
 EXPOSE 7654
