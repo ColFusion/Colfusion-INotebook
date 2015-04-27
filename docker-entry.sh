@@ -66,6 +66,6 @@ nohup java -jar  /opt/project/deployed/multidbsinotebookserverapi-0.1-SNAPSHOT.j
 echo "run jupyter"
 cd /srv/jupyterhub/
 
-jupyterhub --port 8888
+nohup jupyterhub --port 8888 &
 
 exec "$@"
